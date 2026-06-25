@@ -4,7 +4,7 @@
 
 **Goal:** 在 API 中提供可被任意子应用复用的 AI 服务商管理、图片分析和结构化抽取能力，并让 developer 管理服务商，让小汪记物用真实通用接口替换 mock 识别。
 
-**Architecture:** 先扩展 `Puupees.Ai` 通用网关：服务商与模型配置落库，Provider Router 按能力路由，`AiVisionAppService` 负责 OCR/标签/商品/图片摘要，`AiExtractionAppService` 负责 JSON 结构化抽取。Flutter 侧通过生成的 `puupee_api_client` 调用通用接口，developer 管理 provider，小汪记物只新增一个客户端适配服务，不新增后端专属 inventory recognition 接口。
+**Architecture:** 先扩展 `Puupees.Ai` 通用网关：服务商与模型配置落库，Provider Router 按能力路由，`AiVisionAppService` 负责 OCR/标签/商品/图片摘要，`AiExtractionAppService` 负责 JSON 结构化抽取。Flutter 侧通过生成的 `felorx_api_client` 调用通用接口，developer 管理 provider，小汪记物只新增一个客户端适配服务，不新增后端专属 inventory recognition 接口。
 
 **Tech Stack:** .NET 8、ABP Framework 8.1、Entity Framework Core、ASP.NET Core MVC、System.Text.Json、HttpClientFactory、xUnit、Shouldly、NSubstitute、Dart 3.8、Flutter、Riverpod、go_router、shadcn_flutter、OpenAPI Generator。
 
@@ -61,9 +61,9 @@
 - Create: `api/test/Puupees.Application.Tests/Ai/AiProviderRouterTests.cs`
 - Create: `api/test/Puupees.Application.Tests/Ai/AiVisionAndExtractionTests.cs`
 - Create: `api/test/Puupees.Application.Tests/Ai/TencentCloudProviderTests.cs`
-- Generated/Modify: `packages/api/puupee_api_client/lib/**`
-- Generated/Modify: `packages/api/puupee_api_client/doc/**`
-- Generated/Modify: `packages/api/puupee_api_client/test/**`
+- Generated/Modify: `packages/api/felorx_api_client/lib/**`
+- Generated/Modify: `packages/api/felorx_api_client/doc/**`
+- Generated/Modify: `packages/api/felorx_api_client/test/**`
 - Modify: `apps/developer/lib/development/home_page.dart`
 - Modify: `apps/developer/lib/router.dart`
 - Create: `apps/developer/lib/ai-providers/home_page.dart`
@@ -1742,10 +1742,10 @@ Expected: commit only when there are actual fixes.
 ### Task 6: Regenerate Dart API Client
 
 **Files:**
-- Generated/Modify: `packages/api/puupee_api_client/lib/**`
-- Generated/Modify: `packages/api/puupee_api_client/doc/**`
-- Generated/Modify: `packages/api/puupee_api_client/test/**`
-- Modify: `packages/api/puupee_api_client/pubspec.yaml` only if generator updates it.
+- Generated/Modify: `packages/api/felorx_api_client/lib/**`
+- Generated/Modify: `packages/api/felorx_api_client/doc/**`
+- Generated/Modify: `packages/api/felorx_api_client/test/**`
+- Modify: `packages/api/felorx_api_client/pubspec.yaml` only if generator updates it.
 
 - [ ] **Step 1: Start API host for swagger**
 
@@ -1767,14 +1767,14 @@ cd packages/api/puupee_sdk_generator
 dart run bin/puupee_sdk_generator.dart dart --swagger-url http://localhost:5000/swagger/v1/swagger.json
 ```
 
-Expected: `packages/api/puupee_api_client` gains APIs/models for `AiProvidersApi`, `AiVisionApi`, and `AiExtractionApi`.
+Expected: `packages/api/felorx_api_client` gains APIs/models for `AiProvidersApi`, `AiVisionApi`, and `AiExtractionApi`.
 
 - [ ] **Step 3: Run client code generation**
 
 Run:
 
 ```bash
-cd packages/api/puupee_api_client
+cd packages/api/felorx_api_client
 dart run build_runner build --delete-conflicting-outputs
 ```
 
@@ -1785,7 +1785,7 @@ Expected: generated `*.g.dart` files are updated successfully.
 Run:
 
 ```bash
-cd packages/api/puupee_api_client
+cd packages/api/felorx_api_client
 dart analyze
 ```
 
@@ -1794,7 +1794,7 @@ Expected: analysis succeeds.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add packages/api/puupee_api_client
+git add packages/api/felorx_api_client
 git commit -m "chore(api-client): 生成 AI 通用能力客户端"
 ```
 
@@ -1841,7 +1841,7 @@ Create `apps/developer/lib/ai-providers/provider.dart`:
 
 ```dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:puupee_api_client/puupee_api_client.dart';
+import 'package:felorx_api_client/felorx_api_client.dart';
 import 'package:puupee_shared/providers/base/api_client.dart';
 
 const aiProviderPageSize = 10;
@@ -1868,7 +1868,7 @@ final aiProvidersCountProvider = Provider<AsyncValue<int>>((ref) {
 Create `apps/developer/lib/ai-providers/list_view_item.dart`:
 
 ```dart
-import 'package:puupee_api_client/puupee_api_client.dart';
+import 'package:felorx_api_client/felorx_api_client.dart';
 import 'package:shadcn_flutter/shadcn_flutter.dart';
 
 class AiProviderListViewItem extends StatelessWidget {
@@ -1971,7 +1971,7 @@ Create `apps/developer/lib/ai-providers/edit_page.dart`:
 import 'package:flutter/material.dart' as material;
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:puupee_api_client/puupee_api_client.dart';
+import 'package:felorx_api_client/felorx_api_client.dart';
 import 'package:puupee_developer/ai-providers/provider.dart';
 import 'package:puupee_shared/providers/base/api_client.dart';
 import 'package:puupee_shared/utils/toast.dart';
@@ -2287,7 +2287,7 @@ import 'dart:io';
 
 import 'package:decimal/decimal.dart';
 import 'package:puupee/puupee.dart';
-import 'package:puupee_api_client/puupee_api_client.dart';
+import 'package:felorx_api_client/felorx_api_client.dart';
 
 import '../models/inventory_asset_draft.dart';
 import 'inventory_recognition_service.dart';
@@ -2298,7 +2298,7 @@ class ApiInventoryRecognitionService implements InventoryRecognitionService {
     required this.uploadImage,
   });
 
-  final PuupeeApiClient apiClient;
+  final FelorxApiClient apiClient;
   final Future<AiMediaReferenceDto> Function(File file) uploadImage;
 
   @override
@@ -2453,7 +2453,7 @@ import 'dart:io';
 
 import 'package:mime/mime.dart';
 import 'package:path/path.dart' as path;
-import 'package:puupee_api_client/puupee_api_client.dart';
+import 'package:felorx_api_client/felorx_api_client.dart';
 import 'package:puupee_shared/components/file_upload/upload_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -2611,7 +2611,7 @@ Expected: no new analysis errors caused by this feature.
 If verification required small fixes:
 
 ```bash
-git add api apps/developer apps/inventory packages/api/puupee_api_client
+git add api apps/developer apps/inventory packages/api/felorx_api_client
 git commit -m "fix(ai): 完成通用视觉能力验证"
 ```
 

@@ -406,7 +406,7 @@ Expected: commit succeeds and contains only Flutter env/default URL changes.
 - Modify: `packages/api/puupee_sdk_generator/bin/puupee_sdk_generator.dart`
 - Modify: `packages/api/puupee_sdk_generator/README.md`
 - Modify: `packages/api/puupee_sdk_generator/swagger.json`
-- Modify: `packages/api/puupee_api_client/README.md`
+- Modify: `packages/api/felorx_api_client/README.md`
 - Modify: `packages/api/puupee-api-go/README.md`
 - Modify: `packages/api/puupee-api-go/api/openapi.yaml`
 
@@ -455,7 +455,7 @@ packages/api/puupee_sdk_generator/lib/src/swagger_downloader.dart \
 packages/api/puupee_sdk_generator/bin/puupee_sdk_generator.dart \
 packages/api/puupee_sdk_generator/README.md \
 packages/api/puupee_sdk_generator/swagger.json \
-packages/api/puupee_api_client/README.md \
+packages/api/felorx_api_client/README.md \
 packages/api/puupee-api-go/README.md \
 packages/api/puupee-api-go/api/openapi.yaml
 ```
@@ -495,7 +495,7 @@ Expected: CLI config tests exit 0.
 Run:
 
 ```bash
-git add packages/sync/puupee_connect/lib/src/host/connect_host_config.dart packages/sync/puupee_connect/test/host/connect_host_config_test.dart packages/sync/puupee_connect/test/host/connect_host_cli_defaults_test.dart packages/sync/puupee_connect/test/host/connect_host_cli_output_test.dart packages/sync/puupee_sync/lib/src/sync_server_config.dart packages/sync/puupee_sync/lib/src/sync_server.dart packages/sync/puupee_sync/bin/mcp_config_generator.dart packages/sync/puupee_sync/test/core_models_test.dart packages/sync/puupee_sync/pubspec.yaml packages/sync/puupee_sync/README.md packages/sync/puupee_sync/docs/mcp_installation.md packages/sync/puupee_sync/docs/mcp_authentication.md packages/sync/puupee_sync/docs/mcp_server.md packages/sync/puupee_sync/docs/mcp_web_config_generator.html packages/common/puupee_shared/pubspec.yaml packages/common/puupee_upgrader/pubspec.yaml packages/tools/puupee_cli/lib/src/config/puupee_config.dart packages/tools/puupee_cli/test/config_test.dart packages/tools/puupee_cli/example/api_key_login_example.sh packages/tools/puupee_cli/lib/src/commands/store_app_asset_command.dart packages/tools/puupee_builder_cli/lib/src/packaging_config_generator.dart packages/tools/puupee_icons/pubspec.yaml packages/api/puupee_sdk_generator/lib/src/swagger_downloader.dart packages/api/puupee_sdk_generator/bin/puupee_sdk_generator.dart packages/api/puupee_sdk_generator/README.md packages/api/puupee_sdk_generator/swagger.json packages/api/puupee_api_client/README.md packages/api/puupee-api-go/README.md packages/api/puupee-api-go/api/openapi.yaml
+git add packages/sync/puupee_connect/lib/src/host/connect_host_config.dart packages/sync/puupee_connect/test/host/connect_host_config_test.dart packages/sync/puupee_connect/test/host/connect_host_cli_defaults_test.dart packages/sync/puupee_connect/test/host/connect_host_cli_output_test.dart packages/sync/puupee_sync/lib/src/sync_server_config.dart packages/sync/puupee_sync/lib/src/sync_server.dart packages/sync/puupee_sync/bin/mcp_config_generator.dart packages/sync/puupee_sync/test/core_models_test.dart packages/sync/puupee_sync/pubspec.yaml packages/sync/puupee_sync/README.md packages/sync/puupee_sync/docs/mcp_installation.md packages/sync/puupee_sync/docs/mcp_authentication.md packages/sync/puupee_sync/docs/mcp_server.md packages/sync/puupee_sync/docs/mcp_web_config_generator.html packages/common/puupee_shared/pubspec.yaml packages/common/puupee_upgrader/pubspec.yaml packages/tools/puupee_cli/lib/src/config/puupee_config.dart packages/tools/puupee_cli/test/config_test.dart packages/tools/puupee_cli/example/api_key_login_example.sh packages/tools/puupee_cli/lib/src/commands/store_app_asset_command.dart packages/tools/puupee_builder_cli/lib/src/packaging_config_generator.dart packages/tools/puupee_icons/pubspec.yaml packages/api/puupee_sdk_generator/lib/src/swagger_downloader.dart packages/api/puupee_sdk_generator/bin/puupee_sdk_generator.dart packages/api/puupee_sdk_generator/README.md packages/api/puupee_sdk_generator/swagger.json packages/api/felorx_api_client/README.md packages/api/puupee-api-go/README.md packages/api/puupee-api-go/api/openapi.yaml
 git commit -m "refactor(puupee_cli): 迁移 Felorx 工具域名配置"
 ```
 

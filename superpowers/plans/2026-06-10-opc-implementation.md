@@ -107,7 +107,7 @@ dependencies:
   puupee: ^1.2.4
   puupee_utilities: ^0.0.16
   puupee_sync: ^0.0.32+2
-  puupee_api_client: ^1.23.1
+  felorx_api_client: ^1.23.1
 
   # 状态管理
   flutter_riverpod: ^3.0.3

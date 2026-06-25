@@ -10,7 +10,7 @@
 ## 非目标
 
 - 不移动 `apps/sync_node` 目录；`sync_node` 已是单数服务 slug。
-- 不在本步骤重命名 `PuupeeSyncServer`、`PuupeeDbConfig`、`PuupeeApiClient` 等共享同步/API 类型。
+- 不在本步骤重命名 `PuupeeSyncServer`、`PuupeeDbConfig`、`FelorxApiClient` 等共享同步/API 类型。
 - 不重命名 `puupee_connect`、`puupee_shared`、`puupee_sync` 等共享依赖包。
 
 ## 步骤

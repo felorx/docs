@@ -9,7 +9,7 @@
 - `apps/reevibe/lib/pages/session_page.dart` 已验证 Flutter 侧 `flutter_webrtc` + DataChannel + 终端 IO 的基本模式。
 - `apps/ops/lib/pages/terminal/local_terminal_page.dart` 已有成熟本地终端体验，底层是 `xterm` + `flutter_pty`。
 - `apps/sync_node/lib/sync_node_runner.dart` 已有可返回运行句柄的启动流程，适合增加可选子服务并在 stop 时统一释放。
-- `packages/api/puupee_api_client` 和 `puupee_shared` 已有设备列表、设备绑定和当前用户设备信息能力，可用于同账号发现的第一版身份基础。
+- `packages/api/felorx_api_client` 和 `puupee_shared` 已有设备列表、设备绑定和当前用户设备信息能力，可用于同账号发现的第一版身份基础。
 
 ## 目标
 

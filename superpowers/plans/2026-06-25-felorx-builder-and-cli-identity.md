@@ -9,7 +9,7 @@
 
 ## 非目标
 
-- 不在本批次重命名 `puupee_cli`、`puupee_api_client`、`puupee_shared` 等其他共享包。
+- 不在本批次重命名 `puupee_cli`、`felorx_api_client`、`puupee_shared` 等其他共享包。
 - 不改变构建业务逻辑，只同步标识、路径、导入和测试期望。
 - 不迁移历史设计文档中的旧路径，除非它们是当前命令或 workspace 配置。
 

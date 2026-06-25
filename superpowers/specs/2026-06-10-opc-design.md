@@ -107,7 +107,7 @@ apps/opc/
 - `puupee_shared` — 共享组件和工具
 - `puupee_ui` — UI 组件库
 - `puupee_sync` — 数据同步
-- `puupee_api_client` — API 客户端
+- `felorx_api_client` — API 客户端
 
 **状态管理：**
 - `flutter_riverpod` — 响应式状态管理
