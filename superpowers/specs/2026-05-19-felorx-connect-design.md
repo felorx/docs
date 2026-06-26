@@ -180,7 +180,7 @@ PTY 实现优先使用可兼容 Dart 3.8+ 的纯 Dart/FFI 方案。如果现成 
 - `--connect-turn-credential`
 - `--connect-host-heartbeat-timeout`
 
-对应环境变量使用 `PUUPEE_SYNC_NODE_CONNECT_*` 前缀。`runSyncNode` 启动 `FelorxSyncServer` 后，如果启用 connect relay，则启动 `ConnectRelayServer`。`SyncNodeRunHandle.stop()` 增加 connect relay 停止逻辑，确保端口释放。
+对应环境变量使用 `FELORX_SYNC_NODE_CONNECT_*` 前缀。`runSyncNode` 启动 `FelorxSyncServer` 后，如果启用 connect relay，则启动 `ConnectRelayServer`。`SyncNodeRunHandle.stop()` 增加 connect relay 停止逻辑，确保端口释放。
 
 第一期 relay 可以单独监听 `connect-port`。后续如果需要同端口挂载到 sync server 的 shelf router，再调整 `FelorxSyncServer` 对外暴露 mount 能力。
 

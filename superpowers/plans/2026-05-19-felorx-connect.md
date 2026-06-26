@@ -2671,19 +2671,19 @@ After `await syncServer.serve();`, add:
 ```dart
   ConnectRelayServer? connectRelayServer;
   final enableConnectRelay =
-      env['PUUPEE_SYNC_NODE_CONNECT_ENABLE_RELAY'] == 'true' ||
+      env['FELORX_SYNC_NODE_CONNECT_ENABLE_RELAY'] == 'true' ||
       result['enable-connect-relay'] as bool;
   final connectPort = int.parse(
-    env['PUUPEE_SYNC_NODE_CONNECT_PORT'] ?? result['connect-port'] as String,
+    env['FELORX_SYNC_NODE_CONNECT_PORT'] ?? result['connect-port'] as String,
   );
   final heartbeatTimeout = Duration(
     seconds: int.parse(
-      env['PUUPEE_SYNC_NODE_CONNECT_HOST_HEARTBEAT_TIMEOUT'] ??
+      env['FELORX_SYNC_NODE_CONNECT_HOST_HEARTBEAT_TIMEOUT'] ??
           result['connect-host-heartbeat-timeout'] as String,
     ),
   );
   final connectTurnUrl =
-      env['PUUPEE_SYNC_NODE_CONNECT_TURN_URL'] ??
+      env['FELORX_SYNC_NODE_CONNECT_TURN_URL'] ??
       result['connect-turn-url'] as String?;
   connectRelayServer = await startSyncNodeConnectRelay(
     enabled: enableConnectRelay,
