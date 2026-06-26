@@ -738,7 +738,7 @@ void main() {
   test('BuildService 为不同制品生成不同构建目录', () {
     final service = BuildService(
       maxConcurrentBuilds: 1,
-      puupeeBuilderPath: 'felorx-builder',
+      felorxBuilderPath: 'felorx-builder',
     );
 
     final apkWorkspace = service.resolveBuildWorkspaceDir(
